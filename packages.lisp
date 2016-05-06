@@ -12,4 +12,7 @@
   (:use "COMMON-LISP")
   (:export "*TIME-ZERO*"
            "*TIME-STEP-IN-SECONDS*" 
-           "TOTP"))
+           "TOTP"
+           "MAKE-OTPAUTH-URL"
+           "PARSE-OTPAUTH-URL"
+           "GENERATE-QR-CODE"))
