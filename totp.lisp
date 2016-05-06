@@ -11,5 +11,5 @@
 (defmacro time-step (unix-time)
   `(floor (- ,unix-time *time-zero*) *time-step-in-seconds*))
 
-(defun totp (key-hexstring &optional (offset 0) (time (- (get-universal-time) .unix-epoch-zero. offset)))
-  (hotp:hotp key-hexstring (time-step time)))
+(defun totp (key &optional (offset 0) (time (- (get-universal-time) .unix-epoch-zero. offset)))
+  (hotp:hotp key (time-step time)))
