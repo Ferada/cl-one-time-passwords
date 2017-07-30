@@ -9,7 +9,8 @@
 (defun ensure-key-bytes (object)
   (etypecase object
     (string (ironclad:hex-string-to-byte-array object))
-    (vector object)))
+    ((vector (unsigned-byte 8)) object)
+    (vector (coerce object '(vector (unsigned-byte 8))))))
 
 (defun hotp (key counter)
   (hotp-truncate (hmac-sha-n (ensure-key-bytes key) counter)))
